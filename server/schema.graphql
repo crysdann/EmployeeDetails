@@ -1,0 +1,44 @@
+scalar GraphQLDate
+
+enum titleType {
+  Employee
+  Manager
+  Director
+  VP
+}
+
+type Employee {
+  employeeid: Int!
+  firstname: String!
+  lastname: String!
+  age: Int
+  dateofjoining: GraphQLDate
+  title: String!
+  department: String
+  employeetype: String
+  currentstatus: String
+}
+
+"Toned down list, used as inputs, without server generated values."
+input EmployeeInputs {
+  title: String!
+  "Optional, if not supplied, will be set to 'New'"
+  firstname: String!
+  lastname: String!
+  currentstatus: String
+  department: String
+  age: Int
+  dateofjoining: GraphQLDate
+  employeetype: String
+}
+
+# Top level declarations
+
+type Query {
+  about: String!
+  employeeList: [Employee!]!
+}
+type Mutation {
+  setAboutMessage(message: String!): String
+  employeeAdd(employee: EmployeeInputs!): Employee!
+}
