@@ -8,7 +8,7 @@ const cors = require("cors");
 
 let aboutMessage = "Employee Tracker API v1.0";
 const MONGO_URL =
-  "mongodb+srv://talesfaraway:1234@cluster0.jhpqbjr.mongodb.net/";
+  "mongodb+srv://@cluster0.jhpqbjr.mongodb.net/";
 
 const GraphQLDate = new GraphQLScalarType({
   name: "GraphQLDate",
